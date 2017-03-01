@@ -1,0 +1,41 @@
+{
+  "name": "critical-webpack-plugin",
+  "version": "0.1.0",
+  "description": "Webpack wrapper for critical css extraction",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint '**/*.js' --ignore-path .eshintignore",
+    "cover": "istanbul cover node_modules/mocha/bin/_mocha",
+    "test": "npm run lint && npm run cover && codecov"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iGitScor/critical-webpack-plugin.git"
+  },
+  "keywords": [
+    "webpack",
+    "plugin"
+  ],
+  "author": "iGitScor <sebastien.correaud@gmail.com> (http://iscor.me)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/iGitScor/critical-webpack-plugin/issues"
+  },
+  "homepage": "https://github.com/iGitScor/critical-webpack-plugin#readme",
+  "dependencies": {
+    "critical": "0.8.x"
+  },
+  "devDependencies": {
+    "codecov": "1.0.x",
+    "eslint": "3.16.x",
+    "eslint-config-airbnb": "14.1.x",
+    "eslint-plugin-import": "2.2.x",
+    "eslint-plugin-jsx-a11y": "4.0.x",
+    "eslint-plugin-react": "6.10.x",
+    "normalize.css": "5.0.x",
+    "expect.js": "0.3.x",
+    "istanbul": "0.4.x",
+    "mocha": "3.2.x",
+    "webpack-mock": "0.1.x"
+  }
+}
