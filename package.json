@@ -37,5 +37,8 @@
     "istanbul": "0.4.x",
     "mocha": "3.2.x",
     "webpack-mock": "0.1.x"
-  }
+  },
+  "files": [
+    "index.js"
+  ]
 }
