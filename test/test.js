@@ -22,7 +22,7 @@ describe('CriticalWebpackPlugin plugin', () => {
   });
 
   it('should throw error when no parameters', () => {
-    const noParamConstructor = function () {
+    const noParamConstructor = () => {
       // eslint-disable-next-line no-new
       new CriticalWebpackPlugin();
     };
@@ -41,5 +41,14 @@ describe('CriticalWebpackPlugin plugin', () => {
 
   it('should apply compiler (webpack-mock)', () => {
     critical.apply(webpackMock);
+  });
+
+  it('should fetch content if the source is a remote URL', () => {
+    delete critical.criticalOptions.base;
+
+    critical.criticalOptions.src = 'http://iscor.me';
+    critical.criticalOptions.destFolder = 'tmp';
+
+    critical.execute();
   });
 });

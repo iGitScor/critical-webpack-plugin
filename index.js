@@ -1,4 +1,6 @@
 const critical = require('critical');
+const urlValidator = require('valid-url');
+const request = require('sync-request');
 
 module.exports = class CriticalWebpackPlugin {
   constructor(criticalOptions, options = {}) {
@@ -18,7 +20,23 @@ module.exports = class CriticalWebpackPlugin {
     return typeof options === 'object';
   }
 
+  static hasToFetchContent(source) {
+    return urlValidator.isUri(source);
+  }
+
+  hydrateWithExternalContent() {
+    const externalContentURL = this.criticalOptions.src;
+    const externalContent = request('GET', externalContentURL);
+
+    delete this.criticalOptions.src;
+    this.criticalOptions.html = externalContent.getBody();
+  }
+
   execute() {
+    if (CriticalWebpackPlugin.hasToFetchContent(this.criticalOptions.src)) {
+      this.hydrateWithExternalContent();
+    }
+
     critical.generate(this.criticalOptions);
 
     return true;
