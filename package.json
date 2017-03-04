@@ -1,12 +1,13 @@
 {
   "name": "critical-webpack-plugin",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Webpack wrapper for critical css extraction",
   "main": "index.js",
   "scripts": {
     "lint": "eslint '**/*.js' --ignore-path .eshintignore",
     "cover": "istanbul cover node_modules/mocha/bin/_mocha",
-    "test": "npm run lint && npm run cover && codecov"
+    "pretest": "npm run lint",
+    "test": "npm run cover && codecov"
   },
   "repository": {
     "type": "git",
@@ -14,7 +15,9 @@
   },
   "keywords": [
     "webpack",
-    "plugin"
+    "plugin",
+    "curl",
+    "fetch content"
   ],
   "author": "iGitScor <sebastien.correaud@gmail.com> (http://iscor.me)",
   "license": "MIT",
@@ -23,7 +26,9 @@
   },
   "homepage": "https://github.com/iGitScor/critical-webpack-plugin#readme",
   "dependencies": {
-    "critical": "0.8.x"
+    "critical": "0.8.x",
+    "sync-request": "4.0.x",
+    "valid-url": "1.0.x"
   },
   "devDependencies": {
     "codecov": "1.0.x",
@@ -40,5 +45,8 @@
   },
   "files": [
     "index.js"
-  ]
+  ],
+  "engines": {
+    "node": ">=6"
+  }
 }

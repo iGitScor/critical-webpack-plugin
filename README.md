@@ -4,6 +4,7 @@ Webpack wrapper for critical css generation
 
 [![Build Status][build-badge]][build]
 [![codecov][codecoverage-badge]][codecoverage]
+![Node dependency][node-badge]
 [![Dependencies][dependencyci-badge]][dependencyci]
 [![dependencies Status][dependencies-badge]][dependencies]
 [![devDependencies Status][devDependencies-badge]][devDependencies]
@@ -42,6 +43,21 @@ var config = {
 
 See [critical package](https://www.npmjs.com/package/critical) for options
 
+#### Fetch content
+
+This plugin allows to fetch remotely the content of a web page
+```javascript
+const options = {
+  src: 'http://iscor.me',
+  dest: '../build/main.css',
+  css: ['node_modules/normalize.css/normalize.css'],
+  width: 480,
+  height: 800,
+};
+```
+
+**As this plugin is a wrapper, the critical library seems to not accept well a remote url, but the process is done normally.**
+
 ## Developing
 
 ```shell
@@ -71,5 +87,6 @@ The code in this project is licensed under MIT license.
 [dependencies]: https://david-dm.org/iGitScor/critical-webpack-plugin
 [devDependencies-badge]: https://david-dm.org/iGitScor/critical-webpack-plugin/dev-status.svg?style=flat-square
 [devDependencies]: https://david-dm.org/iGitScor/critical-webpack-plugin?type=dev
+[node-badge]: https://img.shields.io/node/v/critical-webpack-plugin.svg?style=flat-square
 [license-badge]: https://img.shields.io/npm/l/critical-webpack-plugin.svg?style=flat-square
 [license]: https://github.com/iGitScor/critical-webpack-plugin/blob/master/LICENSE
