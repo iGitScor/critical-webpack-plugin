@@ -4,6 +4,8 @@
   "description": "Webpack wrapper for critical css extraction",
   "main": "index.js",
   "scripts": {
+    "contributors:add": "all-contributors add",
+    "contributors:generate": "all-contributors generate",
     "lint": "eslint '**/*.js' --ignore-path .eshintignore",
     "cover": "istanbul cover node_modules/mocha/bin/_mocha",
     "pretest": "npm run lint",
@@ -31,6 +33,7 @@
     "valid-url": "1.0.x"
   },
   "devDependencies": {
+    "all-contributors-cli": "4.0.x",
     "codecov": "1.0.x",
     "eslint": "3.16.x",
     "eslint-config-airbnb": "14.1.x",

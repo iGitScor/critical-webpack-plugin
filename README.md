@@ -1,7 +1,5 @@
 # Critical css Webpack plugin
 
-Webpack wrapper for critical css generation
-
 [![Build Status][build-badge]][build]
 [![codecov][codecoverage-badge]][codecoverage]
 ![Node dependency][node-badge]
@@ -9,6 +7,10 @@ Webpack wrapper for critical css generation
 [![dependencies Status][dependencies-badge]][dependencies]
 [![devDependencies Status][devDependencies-badge]][devDependencies]
 [![MIT License][license-badge]][LICENSE]
+
+> Webpack wrapper for critical css generation
+
+Extract critical css from html file, html input or remote URL to load CSS above the fold.
 
 ## Installing
 
@@ -45,7 +47,9 @@ See [critical package](https://www.npmjs.com/package/critical) for options
 
 #### Fetch content
 
-This plugin allows to fetch remotely the content of a web page
+This plugin allows to fetch remotely the content of a web page.
+
+Example:
 ```javascript
 const options = {
   src: 'http://iscor.me',
@@ -71,7 +75,19 @@ Replace `{your fork}` by your github username.
 ## Contributing
 
 If you'd like to contribute, please fork the repository and use a feature
-branch. All contributions are welcome. Please make a pull request and make sure things still pass after running `npm test`
+branch. All contributions are welcome. Please make a pull request and make sure things still pass after running `npm test`.
+Ensure you've read the [contribution guidelines](CONTRIBUTING.md) for more information and respect the [code of conduct](CODE_OF_CONDUCT.md)
+
+### Contributors
+
+Thanks goes to these wonderful people ([emoji key](https://github.com/kentcdodds/all-contributors#emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+| [<img src="https://avatars3.githubusercontent.com/u/2276944?v=3" width="100px;"/><br /><sub>Sebastien Correaud</sub>](http://twitter.com/iTweetScor)<br />🚇 [💻](https://github.com/iGitScor/critical-webpack-plugin/commits?author=iGitScor) [📖](https://github.com/iGitScor/critical-webpack-plugin/commits?author=iGitScor) [⚠️](https://github.com/iGitScor/critical-webpack-plugin/commits?author=iGitScor) 👀 |
+| :---: | :---: |
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/kentcdodds/all-contributors) specification. Contributions of any kind welcome!
 
 ## Licensing
 

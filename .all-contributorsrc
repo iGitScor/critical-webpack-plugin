@@ -1,0 +1,23 @@
+{
+  "projectName": "critical-webpack-plugin",
+  "projectOwner": "iGitScor",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "iGitScor",
+      "name": "Sebastien Correaud",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/2276944?v=3",
+      "profile": "http://twitter.com/iTweetScor",
+      "contributions": [
+        "infra",
+        "code",
+        "doc",
+        "test"
+      ]
+    }
+  ]
+}
