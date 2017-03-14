@@ -1,9 +1,14 @@
+'use strict';
+
+const path = require('path');
 const critical = require('critical');
 const urlValidator = require('valid-url');
 const request = require('sync-request');
 
 module.exports = class CriticalWebpackPlugin {
-  constructor(criticalOptions, options = {}) {
+  constructor(criticalOptions, options) {
+    options = options || {};
+
     if (CriticalWebpackPlugin.hasValidOptions(criticalOptions)) {
       this.criticalOptions = criticalOptions;
 
@@ -32,21 +37,24 @@ module.exports = class CriticalWebpackPlugin {
     this.criticalOptions.html = externalContent.getBody();
   }
 
-  execute() {
-    if (CriticalWebpackPlugin.hasToFetchContent(this.criticalOptions.src)) {
-      this.hydrateWithExternalContent();
-    }
-
-    critical.generate(this.criticalOptions);
-
-    return true;
-  }
-
   apply(compiler) {
     const that = this;
-    compiler.plugin('after-emit', (compilation, callback) => {
-      that.execute();
-      callback();
+    compiler.plugin('emit', (compilation, callback) => {
+      const assetName = path.basename(that.criticalOptions.dest);
+      delete that.criticalOptions.dest;
+
+      if (CriticalWebpackPlugin.hasToFetchContent(this.criticalOptions.src)) {
+        that.hydrateWithExternalContent();
+      }
+
+      critical.generate(that.criticalOptions).then((output) => {
+        compilation.assets[assetName] = {
+          source: () => output,
+          size: () => output.length,
+        };
+
+        callback();
+      });
     });
   }
 };

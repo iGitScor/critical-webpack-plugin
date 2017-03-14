@@ -1,3 +1,5 @@
+'use strict';
+
 const CriticalWebpackPlugin = require('../index.js');
 const expect = require('expect.js');
 const webpackMock = require('webpack-mock');
@@ -35,20 +37,14 @@ describe('CriticalWebpackPlugin plugin', () => {
     expect(critical.verbose).to.equal(false);
   });
 
-  it('should extract critical css', () => {
-    expect(critical.execute()).to.equal(true);
-  });
-
-  it('should apply compiler (webpack-mock)', () => {
+  it('can be called in webpack (use of webpack-mock)', () => {
     critical.apply(webpackMock);
   });
 
-  it('should fetch content if the source is a remote URL', () => {
+  it('can fetch content if the source is a remote URL', () => {
     delete critical.criticalOptions.base;
-
     critical.criticalOptions.src = 'http://iscor.me';
-    critical.criticalOptions.destFolder = 'tmp';
 
-    critical.execute();
+    critical.apply(webpackMock);
   });
 });
