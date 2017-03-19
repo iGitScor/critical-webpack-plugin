@@ -9,7 +9,8 @@
     "lint": "eslint '**/*.js' --ignore-path .eshintignore",
     "cover": "istanbul cover node_modules/mocha/bin/_mocha",
     "pretest": "npm run lint",
-    "test": "npm run cover && codecov"
+    "test": "npm run cover",
+    "posttest": "codecov"
   },
   "repository": {
     "type": "git",
