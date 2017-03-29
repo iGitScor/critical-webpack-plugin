@@ -29,7 +29,7 @@ Add the plugin to your plugin list
 ```javascript
 var config = {
   plugins: [
-    new CriticalWebpackPLugin({
+    new CriticalWebpackPlugin({
       base: 'test',
       src: 'index.html',
       dest: '../build/main.css',
