@@ -8,9 +8,11 @@
     "contributors:generate": "all-contributors generate",
     "lint": "eslint '**/*.js' --ignore-path .eshintignore",
     "cover": "istanbul cover node_modules/mocha/bin/_mocha",
-    "pretest": "npm run lint",
+    "pretest": "rimraf build && npm run lint && npm-run-all -s webpack:*",
     "test": "npm run cover",
-    "posttest": "codecov"
+    "posttest": "codecov",
+    "webpack:default": "webpack --config workflow_test/generate-critical.webpack.config.js",
+    "webpack:fetch": "webpack --config workflow_test/fetch-content.webpack.config.js"
   },
   "repository": {
     "type": "git",
@@ -41,10 +43,13 @@
     "eslint-plugin-import": "^2.2",
     "eslint-plugin-jsx-a11y": "^4.0",
     "eslint-plugin-react": "^6.10",
-    "normalize.css": "5.0.x",
     "expect.js": "0.3.x",
     "istanbul": "0.4.x",
     "mocha": "3.2.x",
+    "normalize.css": "5.0.x",
+    "npm-run-all": "^4.0.2",
+    "rimraf": "^2.6.1",
+    "webpack": "^1.14.0",
     "webpack-mock": "0.1.x"
   },
   "files": [
