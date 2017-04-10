@@ -1,6 +1,6 @@
 {
   "name": "critical-webpack-plugin",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "Webpack wrapper for critical css extraction",
   "main": "index.js",
   "scripts": {
@@ -35,8 +35,11 @@
     "sync-request": "4.0.x",
     "valid-url": "1.0.x"
   },
+  "optionalDependencies": {
+    "ua-npmscript-notifier": "^0.2"
+  },
   "devDependencies": {
-    "all-contributors-cli": "4.0.x",
+    "all-contributors-cli": "^4.1.0",
     "codecov": "1.0.x",
     "eslint": "^3.16",
     "eslint-config-airbnb": "^14.1",

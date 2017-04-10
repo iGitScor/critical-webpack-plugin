@@ -3,6 +3,11 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com) and this project follows the [Semantic Versioning](http://semver.org) code.
 
+## 0.3.2 - 2017-04-10
+### Added
+- Add node analytics trigger
+- Test in webpack workflow
+
 ## 0.3.1 - 2017-04-01
 ### Changed
 - Less strict dependency version for eslint
