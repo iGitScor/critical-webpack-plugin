@@ -3,6 +3,10 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com) and this project follows the [Semantic Versioning](http://semver.org) code.
 
+## 0.4.0 - 2017-04-15
+### Added
+- Generate inline files for templating
+
 ## 0.3.2 - 2017-04-10
 ### Added
 - Add node analytics trigger

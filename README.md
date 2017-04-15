@@ -43,7 +43,7 @@ var config = {
 
 ### Configuration
 
-See [critical package](https://www.npmjs.com/package/critical) for options
+See [critical package](https://www.npmjs.com/package/critical) for options and [webpack configuration files](workflow_test) to see implementation.
 
 #### Fetch content
 

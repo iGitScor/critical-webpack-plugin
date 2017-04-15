@@ -29,6 +29,15 @@ module.exports = class CriticalWebpackPlugin {
     return urlValidator.isUri(source);
   }
 
+  static hasToWrapStyle(buffer) {
+    const content = buffer.toString('utf8');
+
+    const containsHTML = content.match(/<([a-z][a-z0-9]*)\b[^>]*>/gi) !== null;
+    const containsStyle = content.match(/(?:\S+\s*{[^}]*})+/gi) !== null;
+
+    return !containsHTML && containsStyle;
+  }
+
   hydrateWithExternalContent() {
     const externalContentURL = this.criticalOptions.src;
     const externalContent = request('GET', externalContentURL);
@@ -40,17 +49,23 @@ module.exports = class CriticalWebpackPlugin {
   apply(compiler) {
     const that = this;
     compiler.plugin('emit', (compilation, callback) => {
-      const assetName = path.basename(that.criticalOptions.dest);
+      const dest = that.criticalOptions.dest;
+      const assetName = path.basename(dest);
       delete that.criticalOptions.dest;
 
-      if (CriticalWebpackPlugin.hasToFetchContent(this.criticalOptions.src)) {
+      if (CriticalWebpackPlugin.hasToFetchContent(that.criticalOptions.src)) {
         that.hydrateWithExternalContent();
       }
 
       critical.generate(that.criticalOptions).then((output) => {
+        let content = output;
+        if (CriticalWebpackPlugin.hasToWrapStyle(content)) {
+          content = `<style>${output}</style>`;
+        }
+
         compilation.assets[assetName] = {
-          source: () => output,
-          size: () => output.length,
+          source: () => content,
+          size: () => content.length,
         };
 
         callback();
