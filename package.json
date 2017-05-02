@@ -12,7 +12,9 @@
     "test": "npm run cover",
     "posttest": "codecov",
     "webpack:default": "webpack --config workflow_test/generate-critical.webpack.config.js",
-    "webpack:fetch": "webpack --config workflow_test/fetch-content.webpack.config.js"
+    "webpack:fetch": "webpack --config workflow_test/fetch-content.webpack.config.js",
+    "webpack:include": "webpack --config workflow_test/generate-include.webpack.config.js",
+    "webpack:inline": "webpack --config workflow_test/generate-inline.webpack.config.js"
   },
   "repository": {
     "type": "git",
